@@ -46,8 +46,10 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
-  config.vm.synced_folder "../", "/vagrant", type: "nfs", mount_options: ['rw', 'vers=3', 'tcp', 'actimeo=2']
-  config.bindfs.bind_folder "/vagrant", "/vagrant"
+  #config.vm.synced_folder "~/Dropbox/Code", "/vagrant", type: "nfs", mount_options: ['rw', 'vers=3', 'tcp', 'actimeo=2']
+  #config.bindfs.bind_folder "/vagrant", "/vagrant"
+  config.vm.synced_folder "~/Dropbox/Code", "~/Code", :mount_options => ["dmode=777", "fmo<F3>de=666"] 
+
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -61,7 +63,7 @@ Vagrant.configure(2) do |config|
   #   vb.memory = "1024"
   # end
   config.vm.provider "virtualbox" do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "2048"]
+    vb.customize ["modifyvm", :id, "--memory", "1600"]
     vb.name = "python-machine"
   end
   # View the documentation for the provider you are using for more
