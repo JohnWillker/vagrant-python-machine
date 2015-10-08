@@ -31,7 +31,7 @@ Features:
 * Vagrant
 * Ansible
 > On Arch Linux install Ansible using virtualenv, with python 2.7
->
+
 
 
 ## Installation
